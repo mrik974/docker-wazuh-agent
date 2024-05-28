@@ -16,7 +16,7 @@ ENV JOIN_MANAGER_PASSWORD=""
 ENV JOIN_MANAGER_API_PORT="55000"
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
-ENV ROOTFS="/rootfs"
+ENV ROOTFS_DIR="/rootfs"
 RUN install_packages \
   procps curl apt-transport-https gnupg2 inotify-tools python3-docker python3-setuptools python3-pip && \
   curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | apt-key add - && \

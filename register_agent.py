@@ -69,6 +69,7 @@ def create_config_file():
             join_manager_hostname=join_manager_worker,
             join_manager_port=join_manager_port,
             virus_total_key=virus_total_key,
+            root_fs_dir=root_fs_dir,
         )
     wazuh_config_file = open("/var/ossec/etc/ossec.conf", "w")
     wazuh_config_file.write(f"{config} \n")
@@ -283,6 +284,7 @@ if __name__ == "__main__":
     )
     wait_time = os.environ.get("WAZUH_WAIT_TIME", default="10")
     flask_bind = os.environ.get("FLASK_BIND", default="0.0.0.0")
+    root_fs_dir = os.environ.get("ROOTFS_DIR", default="")
     if not node_name:
         node_name = os.environ.get("HOSTNAME")
     login_endpoint = "security/user/authenticate"
