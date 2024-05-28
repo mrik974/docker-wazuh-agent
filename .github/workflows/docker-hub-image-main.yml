@@ -20,17 +20,7 @@ jobs:
       matrix:
         include:
           - dockerfile: ./Dockerfile
-            image: kennyopennix/wazuh-agent
-          - dockerfile: ./images/Dockerfile.amazonlinux
-            image: kennyopennix/wazuh-agent-amazonlinux
-          - dockerfile: ./images/Dockerfile.ubuntu
-            image: kennyopennix/wazuh-agent-ubuntu
-          - dockerfile: ./Dockerfile
-            image: opennix/wazuh-agent
-          - dockerfile: ./images/Dockerfile.amazonlinux
-            image: opennix/wazuh-agent-amazonlinux
-          - dockerfile: ./images/Dockerfile.ubuntu
-            image: opennix/wazuh-agent-ubuntu
+            image: mrik974/wazuh-agent
     steps:
       - name: Checkout
         uses: actions/checkout@v4
