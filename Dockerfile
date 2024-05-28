@@ -6,7 +6,7 @@ RUN install_packages python3-pip python3-setuptools python3-dev gcc && \
 FROM bitnami/minideb:bookworm
 LABEL maintainer="elebon@partitio.com"
 LABEL description="Wazuh Docker Agent"
-ARG AGENT_VERSION="4.7.3"
+ARG AGENT_VERSION="4.7.4"
 ENV JOIN_MANAGER_MASTER_HOST=""
 ENV JOIN_MANAGER_WORKER_HOST=""
 ENV VIRUS_TOTAL_KEY=""
