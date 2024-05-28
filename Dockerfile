@@ -1,12 +1,12 @@
-FROM  bitnami/minideb@sha256:bce8004f7da6547bc568e92895e1b3a3835e6dba48283fbbf9b3f66c1d166c6d as builder
+FROM  bitnami/minideb:bookworm as builder
 COPY requirements.txt /tmp
 RUN install_packages python3-pip python3-setuptools python3-dev gcc && \
      python3 -m pip wheel -w /tmp/wheel -r /tmp/requirements.txt
 
-FROM bitnami/minideb@sha256:bce8004f7da6547bc568e92895e1b3a3835e6dba48283fbbf9b3f66c1d166c6d
-LABEL maintainer="support@opennix.ru"
+FROM bitnami/minideb:bookworm
+LABEL maintainer="elebon@partitio.com"
 LABEL description="Wazuh Docker Agent"
-ARG AGENT_VERSION="4.3.10-1"
+ARG AGENT_VERSION="4.7.3"
 ENV JOIN_MANAGER_MASTER_HOST=""
 ENV JOIN_MANAGER_WORKER_HOST=""
 ENV VIRUS_TOTAL_KEY=""
@@ -16,6 +16,7 @@ ENV JOIN_MANAGER_PASSWORD=""
 ENV JOIN_MANAGER_API_PORT="55000"
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
+ENV ROOTFS="/rootfs"
 RUN install_packages \
   procps curl apt-transport-https gnupg2 inotify-tools python3-docker python3-setuptools python3-pip && \
   curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | apt-key add - && \
